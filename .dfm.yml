@@ -31,6 +31,3 @@ modules:
     hooks:
       after_sync:
         - ./install --xdg --key-bindings --no-zsh --no-fish --no-update-rc --completion
-  # My not-so-secret secrets
-  - repository: git@github.com:chasinglogic/secrets.git
-    name: secrets
