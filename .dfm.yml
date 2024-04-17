@@ -1,5 +1,5 @@
 ---
-prompt_for_commit_message: true
+prompt_for_commit_message: false
 
 mappings:
   - match: '.config/nvim/snippets'
@@ -30,4 +30,4 @@ modules:
     pull_only: true
     hooks:
       after_sync:
-        - ./install --xdg --key-bindings --no-zsh --no-fish --no-update-rc --completion
+        - ./install --xdg --key-bindings --no-fish --no-update-rc --completion

@@ -56,3 +56,5 @@ if [[ -x $(which atuin 2>/dev/null) ]]; then
     eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
+source_if_exists "$HOME/.config/fzf/shell/key-bindings.zsh"
+source_if_exists "$HOME/.config/fzf/shell/completion.zsh"
