@@ -1,6 +1,6 @@
 [user]
-    email = mathew@chasinglogic.io
-    name = Mathew Robinson
+    email = tomwroe01@hotmail.com
+    name = Thomas Wroe
 
 [include]
     path = ~/.gitconfig_local
@@ -9,7 +9,7 @@
     default = current
 	ff = only
 
-[includeIf "gitdir:~/Work/"]
+[includeIf "gitdir:~/work/"]
   path = ~/.work.gitconfig
 
 [magit]

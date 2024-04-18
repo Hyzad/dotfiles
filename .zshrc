@@ -58,3 +58,6 @@ fi
 
 source_if_exists "$HOME/.config/fzf/shell/key-bindings.zsh"
 source_if_exists "$HOME/.config/fzf/shell/completion.zsh"
+
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
