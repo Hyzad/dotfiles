@@ -1,5 +1,5 @@
 ---
-prompt_for_commit_message: false
+prompt_for_commit_message: true
 
 mappings:
   - match: '.config/nvim/snippets'

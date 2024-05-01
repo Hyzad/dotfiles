@@ -1,12 +1,3 @@
-# chasinglogic's dotfiles
-
-These are my dotfiles. They are quite specific to me but I encourage
-you to use them.  If you want to use them to their fullest I recommend
-checking out my [Ansible
-playbook](https://github.com/chasinglogic/personal-infrastructure) and
-my [dotfile manager](https://github.com/chasinglogic/dfm)
-
-
 # License
 
 MIT License so do what you want:

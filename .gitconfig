@@ -10,7 +10,7 @@
 	ff = only
 
 [includeIf "gitdir:~/work/"]
-  path = ~/.work.gitconfig
+  path = ~/.gitconfig.work
 
 [magit]
     hideCampaign = true
