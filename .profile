@@ -114,7 +114,6 @@ export COLORTERM=truecolor
 # Storage for miscellaneous or system specific environment variables
 source_if_exists "$HOME/.env.bash"
 # Setup rustup, cargo path
-source_if_exists /home/chasinglogic/.rustrc
 
 add_to_path /opt/homebrew/bin
 add_to_path "$HOME/.local/bin"
@@ -172,5 +171,5 @@ if [[ -n $(find_executable dfm) ]]; then
 fi
 
 if [[ "$EDITOR" != "code --wait" ]]; then
-    export EDITOR="$VIM_PROG"
+    export EDITOR="code --wait"
 fi

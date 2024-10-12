@@ -163,3 +163,10 @@ function bookmark() {
   echo "alias c.$name='cd $dir'" >> ~/.aliases.local.sh
   source ~/.aliases.local.sh
 }
+
+function pyli() {
+  v
+  ruff check --fix .
+  black .
+  isort .
+}

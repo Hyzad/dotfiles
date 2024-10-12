@@ -45,6 +45,7 @@ source_if_exists "$HOME/.functions.sh"
 source_if_exists "$HOME/.env.sh"
 source_if_exists "$HOME/.aliases.sh"
 source_if_exists "$HOME/.local.sh"
+source_if_exists "$HOME/.extras.sh"
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -61,3 +62,12 @@ source_if_exists "$HOME/.config/fzf/shell/completion.zsh"
 
 bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
+
+unsetopt autocd
+source_if_exists "$HOME/.devops-completion.zsh"
+source_if_exists "$HOME/.pulumi-completion.zsh"
+
+alias docker="AWS_PROFILE=internal-services /usr/local/bin/docker"
+alias docker-compose="AWS_PROFILE=internal-services /usr/local/bin/docker-compose"
+
+source <(fzf --zsh)

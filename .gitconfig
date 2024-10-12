@@ -12,11 +12,15 @@
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig.work
 
+[includeIf "gitdir:~/Library/helm/starters"]
+  path = ~/.gitconfig.work
+
 [magit]
     hideCampaign = true
 
 [core]
     excludesfile = ~/.gitignore_global
+    hooksPath = ~/.githooks
 
 [add]
     verbose = true
