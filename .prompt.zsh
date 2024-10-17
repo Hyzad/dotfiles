@@ -64,12 +64,16 @@ function set_prompt {
     fi
 
     if [[ $SHORT_PROMPT -ne 0 && "$DISABLE_SHORT_PROMPT" == "" ]]; then
-        export PROMPT="$PWD_PROMPT %F{green}\$(parse_git_branch)%f%F{4}\$(lambda_or_delta)%f "
+        PROMPT="$PWD_PROMPT %F{#9e27c7}\$(parse_git_branch)%f%F{4}\$(lambda_or_delta)%f "
+        export PROMPT
+        export PS1=$PROMPT
     else
-        export PROMPT="$COMMAND_STATUS\$(venv_name)\$(aws_profile)\$(kube_context) $PWD_PROMPT %F{green}\$(parse_git_branch)%F{yellow}\$(lambda_or_delta)%f "
+        PROMPT="$COMMAND_STATUS\$(venv_name)\$(aws_profile)\$(kube_context) $PWD_PROMPT %F{#9e27c7}\$(parse_git_branch)%F{yellow}\$(lambda_or_delta)%f "; 
+    	export PROMPT
+        export PS1=$PROMPT
     fi
 }
 
 set_prompt
 
-trap 'set_prompt' SIGWINCH
+#trap 'set_prompt' SIGWINCH

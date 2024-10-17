@@ -83,3 +83,6 @@
     pushInsteadOf = kde:
 [merge]
 	ff = only
+
+[init]
+    defaultBranch = main

@@ -1,5 +1,0 @@
-[Unit]
-Description=Automatically do a backup
-
-[Service]
-ExecStart=%h/.local/bin/auto-backup %h

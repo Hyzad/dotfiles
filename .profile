@@ -4,9 +4,9 @@ function debug() {
     fi
 }
 
-function find_executable() {
+functin find_executable() {
     X=$(which $1 2>/dev/null)
-    debug "Searching for $1 found: $X"
+    debug "Searching for $1 found $X"
     echo $X
 }
 
@@ -32,29 +32,14 @@ function add_to_path() {
     export PATH="$1:$PATH"
 }
 
-debug "PATH=$PATH"
-
 # Just show me the output please....
 export AWS_PAGER=""
-# Google should just make this default since it is required...
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-# Node version manager storage location
-export NOTES_DIR="$HOME/Dropbox/Notes"
 # Use Python3 for Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON="$(which python3)"
-# Plasma scale with HIDPI
-export PLASMA_USE_QT_SCALING=1
-# Packer's colorized output messes with terminals and other programs I use.
-export PACKER_NO_COLOR="1"
-# GPG can weirdly hang without this I've found
-export GPG_TTY=$(tty)
 # Needed for the go compiler and tooling
 export GOPATH="$HOME/Code/go"
 # Make helm work with our internal chart museum
 export GODEBUG=x509ignoreCN=0
-# Set LANG and Locale so it's always what I expect
-export LANG=en_US.UTF-8
-export LC_ALL="en_US.UTF-8"
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 export HISTCONTROL=ignoreboth
@@ -62,21 +47,6 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000000
 # number of lines to save in history file
 export HISTFILESIZE=$HISTSIZE
-# Set CCACHE directory
-if [ -d /data/ccache ]; then
-    export CCACHE_DIR=/data/ccache
-    export CCACHE_MAXSIZE=200G
-else
-    export CCACHE_MAXSIZE=20G
-fi
-# Make Helm look for my local tiller server
-export HELM_HOST=localhost:44134
-# Make Firefox use Wayland
-export MOZ_ENABLE_WAYLAND=1
-# Make ripgrep use my config file.
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-# Make XDG_CONFIG_HOME the same on all platforms.
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # Mac specific fixes
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -113,8 +83,8 @@ export COLORTERM=truecolor
 
 # Storage for miscellaneous or system specific environment variables
 source_if_exists "$HOME/.env.bash"
-# Setup rustup, cargo path
 
+# Setup rustup, cargo path
 add_to_path /opt/homebrew/bin
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.elixir-ls/dist"
@@ -127,30 +97,7 @@ add_to_path "$HOME/.pulumi/bin"
 
 source_if_exists "$HOME/.cargo/env"
 
-# Enable nix if I've installed it on this system
-# Comes after the add_to_path so that nix beats these in the $PATH race.
-source_if_exists "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-source_if_exists "$HOME/.nix-profile/etc/profile.d/nix.sh"
-source_if_exists /etc/profile.d/nix.sh
-source_if_exists /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-
-# Enable asdf
-source_if_exists "$HOME/.asdf/asdf.sh"
-# asdf is a little too clever for it's own good and so somehow the shims / bin
-# won't always end up at the beginning of PATH so this forces that to be true.
-add_to_path "$ASDF_DIR/bin" true
-add_to_path "${ASDF_DATA_DIR:-$HOME/.asdf}/shims" true
-
-if [[ -d "$HOME/.asdf/installs/python" ]]; then
-    for python_install in "$HOME/.asdf/installs/python/"*; do
-      add_to_path "$python_install/bin"
-    done
-fi
-
 source_if_exists "$HOME/.env.local"
-
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-[ -x /usr/bin/dircolors ] && eval "alias ls='ls --color'"
 
 # This has to be after the $PATH is set up.
 # FZF default find command

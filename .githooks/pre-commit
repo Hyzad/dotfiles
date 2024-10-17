@@ -17,4 +17,5 @@ then
   else
     exit 1; # THE USER DONT WANT TO CONTINUE SO ROLLBACK
   fi
-fit
+fi
+
