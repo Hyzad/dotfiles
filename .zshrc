@@ -68,5 +68,3 @@ alias docker-compose="AWS_PROFILE=internal-services /usr/local/bin/docker-compos
 
 source <(fzf --zsh)
 
-fastfetch
-
